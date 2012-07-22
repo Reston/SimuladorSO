@@ -7,6 +7,8 @@ import wx
 
 from constants import *
 
+#Diana esta intentando hacer commit
+
 class SisOpe(wx.Frame):
 
     def __init__(self, parent, title, id):
