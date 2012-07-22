@@ -53,7 +53,7 @@ class SisOpe(wx.Frame):
 
     def on_save(self, event):
         """Guardar una carta"""
-        #nada por ahora
+        #nada por ahora pero hay que hacer algo mijo.
 
     def confirmar(self, file):
         """Mostrar mensaje de confirmación al guardar una carta"""
