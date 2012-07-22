@@ -15,7 +15,7 @@ class SisOpe(wx.Frame):
         wx.Frame.__init__(self, parent,id, title=title, size=(500, 400))
         panel = wx.Panel(self)
         
-        #boton iniciar
+        #Definir boton iniciar
         boton = wx.Button(panel,label="Iniciar",pos=(10,140),size=(60,30))
         self.Bind(wx.EVT_BUTTON, self.iniciarSimulacion,boton)
 
