@@ -15,14 +15,14 @@ class SisOpe(wx.Frame):
         wx.Frame.__init__(self, parent,id, title=title, size=(500, 400))
         panel = wx.Panel(self)
         
-        #Definir boton iniciar
+        #Definir boton iniciar - QUE USAIS PA ACOMODAR LA POSICION?
         boton = wx.Button(panel,label="Iniciar",pos=(10,140),size=(60,30))
         self.Bind(wx.EVT_BUTTON, self.iniciarSimulacion,boton)
 
         #cajas de texto
-        text1=wx.StaticText(panel,-1,"Número de tareas".decode('utf-8'),(10,30))
-        text2=wx.StaticText(panel,-1,"Espacio de memoria",(10,52))
-        text3=wx.StaticText(panel,-1,"Tiempo de ejecución".decode('utf-8'),(10,74))
+        text1=wx.StaticText(panel,-1,"Número de tareas:".decode('utf-8'),(10,30))
+        text2=wx.StaticText(panel,-1,"Espacio de memoria:",(10,52))
+        text3=wx.StaticText(panel,-1,"Tiempo de ejecución:".decode('utf-8'),(10,74))
 
 
         self.tama=wx.TextCtrl(panel,-1,'',(120,30),(120,-1))
