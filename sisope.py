@@ -1,5 +1,34 @@
 # -*- coding: utf-8 *-*
-"""Simulador de tareas en un sistema operativo"""
+"""Simulador de tareas en un sistema operativo
+
+Enunciado:
+
+Generar Tareas:
+-Tamaño proceso
+-Tiempo de ejecución
+-Prioridad ->   -Alta
+                -Media
+                -BAja
+
+Estados de las tareas:                  Interfaz de entrada:
+-En ejecución                           -Número de tareas
+-Suspendidas                            -Espacio de memoria
+-Bloqueadas                             -Tiempo de ejecución del Simulador
+
+Interfaz de salida:
+-Cantidad de tareas ejecutadas
+-Estados en el que quedaron las tareas
+-tiempo promedio de ejecución por tareas
+
+
+    Requisitos:
+1. Informe técnico.
+2. Código.
+3. Ejecución.
+4. Conclusiones.
+5. Recomendaciones.
+
+"""
 #HACIENDO COMMITS AL MISMO TIEMPO
 import datetime
 
