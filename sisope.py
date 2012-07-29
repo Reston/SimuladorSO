@@ -1,5 +1,5 @@
 # -*- coding: utf-8 *-*
-"""Simulador de tareas en un sistema operativo
+""" Simulador de tareas en un sistema operativo
 
 Enunciado:
 
@@ -110,6 +110,7 @@ class SisOpe(wx.Frame):
 		self.Close(True)  # Cierra la ventana
 
 class Resultado(wx.Frame):
+
 	def __init__(self, parent):
 		wx.Frame.__init__(self, parent, wx.NewId(), "Resultados - SimuladorSO",
 							pos=(10,140), size=(600,400))
@@ -148,6 +149,134 @@ class Resultado(wx.Frame):
 		self.MakeModal(False)
 		self.Show(False)
 		evt.Skip()
+
+class listas():
+
+	proAlta = []
+	proMedi = []
+	proBaja = []
+
+	def getTareasAlta(self):
+
+		for tar in proAlta:
+			print tar
+
+		return proAlta
+
+	def getTareasMedi(self):
+
+		for tar in proMedi:
+			print tar
+
+		return proMedi
+
+	def getTareasBaja(self):
+		
+		for tar in proBaja:
+			print tar
+
+		return proBaja
+
+	def setTareaAlta(self, tar):
+		global proAlta
+		proAlta.Append(tar)
+
+	def setTareaBaja(self, tar):
+		global proBaja
+		proBaja.Append(tar)
+
+	def setTareaMedi(self, tar):
+		global proMedi
+		proMedi.Append(tar)
+
+	def __init__(self):
+		pass
+
+class tarea():
+
+	"""
+		Tiempo llegada, Tiempo inicial, Tiempo final, Espacio de memoria
+		ID, Tiempo de duración, Estado.
+
+	"""
+	tiempoLlegada = 0
+	tiempoDuracion = 0
+	tiempoInicial = 0
+	tiempoFinal = 0
+	memoria = 0
+	idtar = ""
+	estado = ""
+	prioridad = ""
+	
+#setters
+	def setTiempollegada(self, tiempo):
+		global tiempoLlegada
+		tiempoLlegada = tiempo
+
+	def setTiempoDuracion(self, tiempo):
+		global tiempoDuracion
+		tiempoDuracion = tiempo
+
+	def setTiempoInicial(self, tiempo):
+		global tiempoInicial
+		tiempoInicial = tiempo
+
+	def setTiempoFinal(self, tiempo):
+		global tiempoFinal
+		tiempoFinal = tiempo
+
+	def setMemoria(self, memoria):
+		global memoria
+		memoria = self.memoria
+
+	def setID(self, idnombre):
+		global idtar
+		idtar = idnombre
+
+	def setEstado(self, estado):
+		global estado
+		estado = self.estado
+
+	def setPrioridad(self, prioridad):
+		global prioridad
+		prioridad = self.prioridad
+
+#getters
+	def setTiempollegada(self, tiempo):
+		global tiempoLlegada
+		tiempoLlegada = tiempo
+
+	def setTiempoDuracion(self, tiempo):
+		global tiempoDuracion
+		tiempoDuracion = tiempo
+
+	def setTiempoInicial(self, tiempo):
+		global tiempoInicial
+		tiempoInicial = tiempo
+
+	def setTiempoFinal(self, tiempo):
+		global tiempoFinal
+		tiempoFinal = tiempo
+
+	def setMemoria(self, memoria):
+		global memoria
+		memoria = self.memoria
+
+	def setID(self, idnombre):
+		global idtar
+		idtar = idnombre
+
+	def setEstado(self, estado):
+		global estado
+		estado = self.estado
+
+	def setPrioridad(self, prioridad):
+		global prioridad
+		prioridad = self.prioridad
+
+
+
+
 
 app = wx.App(False)
 frame = SisOpe(None, "SimuladorSO",id=-1)
