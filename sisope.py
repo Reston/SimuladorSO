@@ -31,14 +31,12 @@ Interfaz de salida:
 5. Recomendaciones.
 
 """
-#HACIENDO COMMITS AL MISMO TIEMPO
+
 import datetime
 
 import wx
 
 from constants import *
-
-#Diana esta intentando hacer commit
 
 class SisOpe(wx.Frame):
 
