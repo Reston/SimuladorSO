@@ -1,85 +1,77 @@
-class tarea():
+# -*- coding: utf-8 *-*
+class Tarea:
 
 	"""
 		Tiempo llegada, Tiempo inicial, Tiempo final, Espacio de memoria
 		ID, Tiempo de duración, Estado.
 
 	"""
-	tiempoLlegada = 0
-	tiempoDuracion = 0
-	tiempoInicial = 0
-	tiempoFinal = 0
-	memoria = 0
-	idtar = ""
-	estado = ""
-	prioridad = ""
-
 	"""
 	setters de las tareas
 
 	"""
 	def setTiempollegada(self, tiempo):
-		global tiempoLlegada
-		tiempoLlegada = tiempo
+		self.tiempoLlegada = tiempo
 
 	def setTiempoDuracion(self, tiempo):
-		global tiempoDuracion
-		tiempoDuracion = tiempo
+		self.tiempoDuracion = tiempo
 
 	def setTiempoInicial(self, tiempo):
-		global tiempoInicial
-		tiempoInicial = tiempo
+		self.tiempoInicial = tiempo
 
 	def setTiempoFinal(self, tiempo):
-		global tiempoFinal
-		tiempoFinal = tiempo
+		self.tiempoFinal = tiempo
 
-	def setMemoria(self, memoria):
-		global memoria
-		memoria = self.memoria
+	def setMemoria(self, smemoria):
+		self.memoria = smemoria
 
 	def setID(self, idnombre):
-		global idtar
-		idtar = idnombre
+		self.idtar = idnombre
 
-	def setEstado(self, estado):
-		global estado
-		estado = self.estado
+	def setEstado(self, sestado):
+		self.estado = sestado
 
-	def setPrioridad(self, prioridad):
-		global prioridad
-		prioridad = self.prioridad
+	def setPrioridad(self, sprioridad):
+		self.prioridad = sprioridad
 
 	"""
 	getters de las tareas
 
 	"""
 	def getTiempollegada(self):
-		return tiempoLlegada
+		return self.tiempoLlegada
 
-	def setTiempoDuracion(self):
-		return tiempoDuracion
+	def getTiempoDuracion(self):
+		return self.tiempoDuracion
 
-	def setTiempoInicial(self):
-		return tiempoInicial
+	def getTiempoInicial(self):
+		return self.tiempoInicial
 
-	def setTiempoFinal(self):
-		return tiempoFinal
+	def getTiempoFinal(self):
+		return self.tiempoFinal
 
-	def setMemoria(self):
-		return memoria
+	def getMemoria(self):
+		return self.memoria
 
-	def setID(self):
-		return idtar
+	def getID(self):
+		return self.idtar
 
-	def setEstado(self):
-		return estado
+	def getEstado(self):
+		return self.estado
 
-	def setPrioridad(self):
-		return prioridad
+	def getPrioridad(self):
+		return self.prioridad
+
+	def imprimir(self):
+		print 'id:'+self.idtar+' memoria:'+str(self.memoria)+' tiempo de llegada:'+str(self.tiempoLlegada)+' duracion:'+str(self.tiempoDuracion)
+
 
 	def __init__(self, idtar, memoria, tiempoLlegada, tiempoDuracion):
-		setID(idtar)
-		setTiempollegada(tiempoLlegada)
-		setTiempoDuracion(tiempoDuracion)
-		
+		self.tiempoLlegada = tiempoLlegada
+		self.tiempoDuracion = tiempoDuracion
+		self.tiempoInicial = 0
+		self.tiempoFinal = 0
+		self.memoria = memoria
+		self.idtar = idtar
+		self.estado = ""
+		self.prioridad = ""

@@ -34,7 +34,8 @@ Interfaz de salida:
 import datetime
 import wx
 from constants import *
-from tarea import *
+from tarea import Tarea
+from listas import Listas
 
 class SisOpe(wx.Frame):
 
@@ -82,6 +83,12 @@ class SisOpe(wx.Frame):
 		self.Show(True)  # Mostrar la ventana
 
 	def iniciarSimulacion(self, event):
+		lis = Listas()
+		tar = Tarea('nuevo', 200, 20, 40)
+		lis.setTareaAlta(tar)
+		listaprint = lis.getTareaByIdAlta('nuevo')
+		listaprint.imprimir()
+
 		resultado = Resultado(self)
 		resultado.Show(True)
 		resultado.MakeModal(True)

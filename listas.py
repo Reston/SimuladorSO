@@ -1,41 +1,42 @@
-class listas():
-
-	proAlta = []
-	proMedi = []
-	proBaja = []
+# -*- coding: utf-8 *-*
+class Listas:
 
 	def getTareasAlta(self):
 
-		for tar in proAlta:
+		for tar in self.proAlta:
 			print tar
 
-		return proAlta
+		return self.proAlta
+
+	def getTareaByIdAlta(self, fId):
+		for tar in self.proAlta:
+			if(tar.getID()==fId):
+				return tar
 
 	def getTareasMedi(self):
 
-		for tar in proMedi:
+		for tar in self.proMedi:
 			print tar
 
-		return proMedi
+		return self.proMedi
 
 	def getTareasBaja(self):
 		
-		for tar in proBaja:
+		for tar in self.proBaja:
 			print tar
 
-		return proBaja
+		return self.proBaja
 
 	def setTareaAlta(self, tar):
-		global proAlta
-		proAlta.Append(tar)
+		self.proAlta.append(tar)
 
 	def setTareaBaja(self, tar):
-		global proBaja
-		proBaja.Append(tar)
+		self.proBaja.append(tar)
 
 	def setTareaMedi(self, tar):
-		global proMedi
-		proMedi.Append(tar)
+		self.proMedi.append(tar)
 
 	def __init__(self):
-		pass
+		self.proAlta = []
+		self.proMedi = []
+		self.proBaja = []
