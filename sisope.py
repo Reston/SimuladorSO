@@ -84,6 +84,7 @@ class SisOpe(wx.Frame):
 
 	def iniciarSimulacion(self, event):
 		lis = Listas()
+		"""AQUI VA EL METODO PARA GENERAR TAREAS"""
 		tar = Tarea('nuevo', 200, 20, 40)
 		lis.setTareaAlta(tar)
 		listaprint = lis.getTareaByIdAlta('nuevo')
