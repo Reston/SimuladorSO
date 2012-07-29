@@ -33,9 +33,11 @@ Interfaz de salida:
 """
 import datetime
 import wx
+import random
 from constants import *
 from tarea import Tarea
 from listas import Listas
+
 
 class SisOpe(wx.Frame):
 
@@ -85,14 +87,30 @@ class SisOpe(wx.Frame):
 	def iniciarSimulacion(self, event):
 		lis = Listas()
 		"""AQUI VA EL METODO PARA GENERAR TAREAS"""
-		tar = Tarea('nuevo', 200, 20, 40)
-		lis.setTareaAlta(tar)
-		listaprint = lis.getTareaByIdAlta('nuevo')
-		listaprint.imprimir()
+		#iniciar(text1.GetValue,text2.GetValue,text3.GetValue)
+
+		#lis.setTareaAlta(tar)
+		#listaprint = lis.getTareaByIdAlta('nuevo')
+		#listaprint.imprimir()
 
 		resultado = Resultado(self)
 		resultado.Show(True)
 		resultado.MakeModal(True)
+"""idtar, memoria(mb), tiempoLlegada, tiempoDuracion"""
+	
+	def iniciar(self, NumTar, EspMem, Tiempo):
+		tareaNum=0
+		for y in xrange(1,10):					#REPETIR TODO 10 VECES
+			for x in xrange(1,Tiempo):			#SIMULAR CREACIÓN DE TAREAS	
+				if tareaNum<=NumTar:			#VERIFICA NUMERO MAXIMO DE TAREAS
+					var=random.randint(1,100)
+					if(var<=10):				#10% DE CHANCE DE CREAR UNA TAREA
+						tareaNum+=1
+						tar = Tarea(tareaNum, random.randint(5, 30), x, random.randint(10, 60))
+				else:
+					self.x=self.Tiempo
+					self.y=10
+
 
 	def on_save(self, event):
 		"""Guardar una carta"""
