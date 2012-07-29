@@ -31,12 +31,14 @@ Interfaz de salida:
 5. Recomendaciones.
 
 """
-
+#HACIENDO COMMITS AL MISMO TIEMPO
 import datetime
 
 import wx
 
 from constants import *
+
+#Diana esta intentando hacer commit
 
 class SisOpe(wx.Frame):
 
@@ -207,76 +209,72 @@ class tarea():
 	idtar = ""
 	estado = ""
 	prioridad = ""
+
+	"""
+	setters de las tareas
+
+	"""
+	def setTiempollegada(self, tiempo):
+		global tiempoLlegada
+		tiempoLlegada = tiempo
+
+	def setTiempoDuracion(self, tiempo):
+		global tiempoDuracion
+		tiempoDuracion = tiempo
+
+	def setTiempoInicial(self, tiempo):
+		global tiempoInicial
+		tiempoInicial = tiempo
+
+	def setTiempoFinal(self, tiempo):
+		global tiempoFinal
+		tiempoFinal = tiempo
+
+	def setMemoria(self, memoria):
+		global memoria
+		memoria = self.memoria
+
+	def setID(self, idnombre):
+		global idtar
+		idtar = idnombre
+
+	def setEstado(self, estado):
+		global estado
+		estado = self.estado
+
+	def setPrioridad(self, prioridad):
+		global prioridad
+		prioridad = self.prioridad
+
+	"""
+	getters de las tareas
+
+	"""
+	def getTiempollegada(self):
+		return tiempoLlegada
+
+	def setTiempoDuracion(self):
+		return tiempoDuracion
+
+	def setTiempoInicial(self):
+		return tiempoInicial
+
+	def setTiempoFinal(self):
+		return tiempoFinal
+
+	def setMemoria(self):
+		return memoria
+
+	def setID(self):
+		return idtar
+
+	def setEstado(self):
+		return estado
+
+	def setPrioridad(self):
+		return prioridad
+
 	
-#setters
-	def setTiempollegada(self, tiempo):
-		global tiempoLlegada
-		tiempoLlegada = tiempo
-
-	def setTiempoDuracion(self, tiempo):
-		global tiempoDuracion
-		tiempoDuracion = tiempo
-
-	def setTiempoInicial(self, tiempo):
-		global tiempoInicial
-		tiempoInicial = tiempo
-
-	def setTiempoFinal(self, tiempo):
-		global tiempoFinal
-		tiempoFinal = tiempo
-
-	def setMemoria(self, memoria):
-		global memoria
-		memoria = self.memoria
-
-	def setID(self, idnombre):
-		global idtar
-		idtar = idnombre
-
-	def setEstado(self, estado):
-		global estado
-		estado = self.estado
-
-	def setPrioridad(self, prioridad):
-		global prioridad
-		prioridad = self.prioridad
-
-#getters
-	def setTiempollegada(self, tiempo):
-		global tiempoLlegada
-		tiempoLlegada = tiempo
-
-	def setTiempoDuracion(self, tiempo):
-		global tiempoDuracion
-		tiempoDuracion = tiempo
-
-	def setTiempoInicial(self, tiempo):
-		global tiempoInicial
-		tiempoInicial = tiempo
-
-	def setTiempoFinal(self, tiempo):
-		global tiempoFinal
-		tiempoFinal = tiempo
-
-	def setMemoria(self, memoria):
-		global memoria
-		memoria = self.memoria
-
-	def setID(self, idnombre):
-		global idtar
-		idtar = idnombre
-
-	def setEstado(self, estado):
-		global estado
-		estado = self.estado
-
-	def setPrioridad(self, prioridad):
-		global prioridad
-		prioridad = self.prioridad
-
-
-
-
 
 app = wx.App(False)
 frame = SisOpe(None, "SimuladorSO",id=-1)
