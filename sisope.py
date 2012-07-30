@@ -50,9 +50,9 @@ class SisOpe(wx.Frame):
 		self.Bind(wx.EVT_BUTTON, self.iniciarSimulacion,boton)
 
 		#cajas de texto
-		text1=wx.StaticText(panel,-1,"Número de tareas:".decode('utf-8'),(10,30))
-		text2=wx.StaticText(panel,-1,"Espacio de memoria:",(10,52))
-		text3=wx.StaticText(panel,-1,"Tiempo de ejecución:".decode('utf-8'),(10,74))
+		self.text1=wx.StaticText(panel,-1,"Número de tareas:".decode('utf-8'),(10,30))
+		self.text2=wx.StaticText(panel,-1,"Espacio de memoria:",(10,52))
+		self.text3=wx.StaticText(panel,-1,"Tiempo de ejecución:".decode('utf-8'),(10,74))
 
 
 		self.tama=wx.TextCtrl(panel,-1,'',(120,30),(120,-1))
@@ -86,10 +86,11 @@ class SisOpe(wx.Frame):
 
 	def iniciarSimulacion(self, event):
 		lis = Listas()
-		GenerarTareas(text1.GetValue,text2.GetValue,text3.GetValue)
-		print text1.GetValue
-		print text2.GetValue
-		print text3.GetValue
+		print self.tama.GetValue()
+		print self.espacio.GetValue()
+		print self.tiempo.GetValue()
+		if self.tiempo.GetValue() != '':
+			self.GenerarTareas(self.tama.GetValue(), self.espacio.GetValue(), int(self.tiempo.GetValue()))
 		#listaprint = lis.getTareaByIdAlta('nuevo')
 		#listaprint.imprimir()
 
@@ -97,11 +98,11 @@ class SisOpe(wx.Frame):
 		resultado.Show(True)
 		resultado.MakeModal(True)
 	
-	def GenerarTareas(self, NumTar, EspMem, Tiempo):
+	def GenerarTareas(self, numTar, espMem, tiempo):
 		tareaNum=0
-		for y in xrange(1,10):					#REPETIR TODO 10 VECES
-			for x in xrange(1,Tiempo):			#SIMULAR CREACIÓN DE TAREAS	
-				if tareaNum<=NumTar:			#VERIFICA NUMERO MAXIMO DE TAREAS
+		for y in xrange(10):					#REPETIR TODO 10 VECES
+			for x in xrange(tiempo):			#SIMULAR CREACIÓN DE TAREAS	
+				if tareaNum<=numTar:			#VERIFICA NUMERO MAXIMO DE TAREAS
 					var=random.randint(1,100)
 					if(var<=10):				#10% DE CHANCE DE CREAR UNA TAREA
 						tareaNum+=1 			#NUMERO ACTUAL DE TAREAS + 1
@@ -114,8 +115,9 @@ class SisOpe(wx.Frame):
 						else:
 							pass#lis.setTareaMedia(tar)
 				else:
-					self.x=self.Tiempo
+					self.x=self.tiempo
 					self.y=10
+		return None
 
 	def on_save(self, event):
 		#Guardar una carta
