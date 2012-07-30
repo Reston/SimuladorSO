@@ -88,11 +88,9 @@ class SisOpe(wx.Frame):
 		self.lis = Listas()
 		if self.tiempo.GetValue() != '':
 			self.GenerarTareas(int(self.ntarea.GetValue()), self.espacio.GetValue(), int(self.tiempo.GetValue()))
-		
-		for elemento in self.lis:
-			print elemento
 
-		#listaprint.imprimir()
+		listaprint = self.lis.getTareaByIdAlta(1)
+		listaprint.imprimir()
 
 		resultado = Resultado(self)
 		resultado.Show(True)

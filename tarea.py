@@ -48,7 +48,7 @@ class Tarea:
 		return self.memoria
 
 	def getID(self):
-		return self.idtar
+		return int(self.idtar)
 
 	def getEstado(self):
 		return self.estado
@@ -57,7 +57,7 @@ class Tarea:
 		return self.prioridad
 
 	def imprimir(self):
-		print 'id:'+self.idtar+' memoria:'+str(self.memoria)+' tiempo de llegada:'+str(self.tiempoLlegada)+' duracion:'+str(self.tiempoDuracion)
+		print 'id:'+str(self.idtar)+' memoria:'+str(self.memoria)+' tiempo de llegada:'+str(self.tiempoLlegada)+' duracion:'+str(self.tiempoDuracion)
 
 
 	def __init__(self, idtar, memoria, tiempoLlegada, tiempoDuracion):

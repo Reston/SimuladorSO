@@ -9,7 +9,7 @@ class Listas:
 
 	def getTareaByIdAlta(self, fId):
 		for tar in self.proAlta:
-			if(tar.getID()==fId):
+			if(tar.getID()>=fId):
 				return tar
 
 	def getTareasMedi(self):
