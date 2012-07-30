@@ -86,12 +86,10 @@ class SisOpe(wx.Frame):
 
 	def iniciarSimulacion(self, event):
 		self.lis = Listas()
-		print self.tama.GetValue()
-		print self.espacio.GetValue()
-		print self.tiempo.GetValue()
 		if self.tiempo.GetValue() != '':
 			self.GenerarTareas(self.tama.GetValue(), self.espacio.GetValue(), int(self.tiempo.GetValue()))
 		#listaprint = lis.getTareaByIdAlta('nuevo')
+
 		#listaprint.imprimir()
 
 		resultado = Resultado(self)
@@ -100,23 +98,23 @@ class SisOpe(wx.Frame):
 	
 	def GenerarTareas(self, numTar, espMem, tiempo):
 		tareaNum=0
-		for y in xrange(10):					#REPETIR TODO 10 VECES
-			for x in xrange(tiempo):			#SIMULAR CREACIÓN DE TAREAS	
-				if tareaNum<=numTar:			#VERIFICA NUMERO MAXIMO DE TAREAS
-					var=random.randint(1,100)
-					if(var<=10):				#10% DE CHANCE DE CREAR UNA TAREA
-						tareaNum+=1 			#NUMERO ACTUAL DE TAREAS + 1
-						tar = Tarea(tareaNum, random.randint(5, 30), x, random.randint(10, 60)) #CREAR LA TAREA
-						prior=random.randint(1,100)  #VARIABLE PARA VER LA PRIORIDAD
-						if(prior<=20):
-							self.lis.setTareaAlta(tar)
-						elif(prior>=71):
-							self.lis.setTareaBaja(tar)
-						else:
-							self.lis.setTareaMedia(tar)
-				else:
-					self.x=self.tiempo
-					self.y=10
+		x=0
+		while tareaNum<numTar:
+			x+=1
+			if(x>=tiempo):
+				x=0
+			#for x in xrange(tiempo):			#SIMULAR CREACIÓN DE TAREAS	
+			var=random.randint(1,100)
+			if(var<=10):				#10% DE CHANCE DE CREAR UNA TAREA
+				tareaNum+=1 			#NUMERO ACTUAL DE TAREAS + 1
+				tar = Tarea(tareaNum, random.randint(5, 30), x, random.randint(10, 60)) #CREAR LA TAREA
+				prior=random.randint(1,10)  #VARIABLE PARA VER LA PRIORIDAD
+					if(prior<=2):
+						print var#self.lis.setTareaAlta(tar)
+					elif(prior>=7):
+						print var#self.lis.setTareaBaja(tar)
+					else:
+						print var#self.lis.setTareaMedi(tar)
 		return None
 
 	def on_save(self, event):
