@@ -2,10 +2,8 @@
 class Listas:
 
 	def getTareasAlta(self):
-
 		for tar in self.proAlta:
 			print tar
-
 		return self.proAlta
 
 	def getTareaByIdAlta(self, fId):
@@ -14,17 +12,13 @@ class Listas:
 				return tar
 
 	def getTareasMedi(self):
-
 		for tar in self.proMedi:
 			print tar
-
 		return self.proMedi
 
 	def getTareasBaja(self):
-		
 		for tar in self.proBaja:
 			print tar
-
 		return self.proBaja
 
 	def setTareaAlta(self, tar):

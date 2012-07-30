@@ -1,15 +1,12 @@
 # -*- coding: utf-8 *-*
-""" Simulador de tareas en un sistema operativo
 
-Enunciado:
-
+""" Simulador de tareas en un sistema operativo Enunciado:
 Generar Tareas:
 -Tamaño proceso
 -Tiempo de ejecución
--Prioridad ->   -Alta
-				-Media
-				-BAja
-
+-Prioridad ->   -Alta 20%
+				-Media 50%
+				-BAja 30%
 
 Estados de las tareas:                  Interfaz de entrada:
 -En ejecución                           -Número de tareas
@@ -22,22 +19,20 @@ Interfaz de salida:
 -Estados en el que quedaron las tareas
 -tiempo promedio de ejecución por tareas
 
-
 	Requisitos:
 1. Informe técnico.
 2. Código.
 3. Ejecución.
 4. Conclusiones.
 5. Recomendaciones.
-
 """
+
 import datetime
 import wx
 import random
 from constants import *
 from tarea import Tarea
 from listas import Listas
-
 
 class SisOpe(wx.Frame):
 
@@ -86,35 +81,40 @@ class SisOpe(wx.Frame):
 
 	def iniciarSimulacion(self, event):
 		lis = Listas()
-		"""AQUI VA EL METODO PARA GENERAR TAREAS"""
-		#iniciar(text1.GetValue,text2.GetValue,text3.GetValue)
-
-		#lis.setTareaAlta(tar)
+		GenerarTareas(text1.GetValue,text2.GetValue,text3.GetValue)
+		print text1.GetValue
+		print text2.GetValue
+		print text3.GetValue
 		#listaprint = lis.getTareaByIdAlta('nuevo')
 		#listaprint.imprimir()
 
 		resultado = Resultado(self)
 		resultado.Show(True)
 		resultado.MakeModal(True)
-"""idtar, memoria(mb), tiempoLlegada, tiempoDuracion"""
 	
-	def iniciar(self, NumTar, EspMem, Tiempo):
+	def GenerarTareas(self, NumTar, EspMem, Tiempo):
 		tareaNum=0
 		for y in xrange(1,10):					#REPETIR TODO 10 VECES
 			for x in xrange(1,Tiempo):			#SIMULAR CREACIÓN DE TAREAS	
 				if tareaNum<=NumTar:			#VERIFICA NUMERO MAXIMO DE TAREAS
 					var=random.randint(1,100)
 					if(var<=10):				#10% DE CHANCE DE CREAR UNA TAREA
-						tareaNum+=1
-						tar = Tarea(tareaNum, random.randint(5, 30), x, random.randint(10, 60))
+						tareaNum+=1 			#NUMERO ACTUAL DE TAREAS + 1
+						#tar = Tarea(tareaNum, random.randint(5, 30), x, random.randint(10, 60)) #CREAR LA TAREA
+						prior=random.randint(1,100)  #VARIABLE PARA VER LA PRIORIDAD
+						if(prior<=20):
+							pass#lis.setTareaAlta(tar)
+						elif(prior>=71):
+							pass#lis.setTareaBaja(tar)
+						else:
+							pass#lis.setTareaMedia(tar)
 				else:
 					self.x=self.Tiempo
 					self.y=10
 
-
 	def on_save(self, event):
-		"""Guardar una carta"""
-		#nada por ahora pero hay que hacer algo mijo.
+		#Guardar una carta
+		pass
 
 	def confirmar(self, file):
 		"""Mostrar mensaje de confirmación al guardar una carta"""
@@ -159,7 +159,6 @@ class Resultado(wx.Frame):
 		bVolver = wx.Button(self.panel,label="Volver",pos=(430,300),size=(60,30))
 		bImprimir = wx.Button(self.panel,label="Imprimir",pos=(500,300),size=(60,30))
 		
-
 		#bindeo de eventos.
 		self.Bind(wx.EVT_BUTTON, self.al_cerrar,bVolver)
 		self.Bind(wx.EVT_BUTTON, self.imprimir, bImprimir)

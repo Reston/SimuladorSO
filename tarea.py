@@ -1,15 +1,11 @@
 # -*- coding: utf-8 *-*
 class Tarea:
-
 	"""
 		Tiempo llegada, Tiempo inicial, Tiempo final, Espacio de memoria
 		ID, Tiempo de duración, Estado.
+	"""
 
-	"""
-	"""
-	setters de las tareas
-
-	"""
+	#setters de las tareas
 	def setTiempollegada(self, tiempo):
 		self.tiempoLlegada = tiempo
 
@@ -34,10 +30,8 @@ class Tarea:
 	def setPrioridad(self, sprioridad):
 		self.prioridad = sprioridad
 
-	"""
-	getters de las tareas
 
-	"""
+	#getters de las tareas
 	def getTiempollegada(self):
 		return self.tiempoLlegada
 
