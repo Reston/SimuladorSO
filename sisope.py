@@ -85,7 +85,7 @@ class SisOpe(wx.Frame):
 		self.Show(True)  # Mostrar la ventana
 
 	def iniciarSimulacion(self, event):
-		lis = Listas()
+		self.lis = Listas()
 		print self.tama.GetValue()
 		print self.espacio.GetValue()
 		print self.tiempo.GetValue()
@@ -106,14 +106,14 @@ class SisOpe(wx.Frame):
 					var=random.randint(1,100)
 					if(var<=10):				#10% DE CHANCE DE CREAR UNA TAREA
 						tareaNum+=1 			#NUMERO ACTUAL DE TAREAS + 1
-						#tar = Tarea(tareaNum, random.randint(5, 30), x, random.randint(10, 60)) #CREAR LA TAREA
+						tar = Tarea(tareaNum, random.randint(5, 30), x, random.randint(10, 60)) #CREAR LA TAREA
 						prior=random.randint(1,100)  #VARIABLE PARA VER LA PRIORIDAD
 						if(prior<=20):
-							pass#lis.setTareaAlta(tar)
+							self.lis.setTareaAlta(tar)
 						elif(prior>=71):
-							pass#lis.setTareaBaja(tar)
+							self.lis.setTareaBaja(tar)
 						else:
-							pass#lis.setTareaMedia(tar)
+							self.lis.setTareaMedia(tar)
 				else:
 					self.x=self.tiempo
 					self.y=10
