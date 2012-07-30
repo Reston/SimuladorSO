@@ -1,6 +1,7 @@
 # -*- coding: utf-8 *-*
 class Listas:
 
+	#getters de las listas
 	def getTareasAlta(self):
 		for tar in self.proAlta:
 			print tar
@@ -21,6 +22,7 @@ class Listas:
 			print tar
 		return self.proBaja
 
+	#setters de las listas
 	def setTareaAlta(self, tar):
 		self.proAlta.append(tar)
 
