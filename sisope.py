@@ -88,7 +88,9 @@ class SisOpe(wx.Frame):
 		self.lis = Listas()
 		if self.tiempo.GetValue() != '':
 			self.GenerarTareas(int(self.ntarea.GetValue()), self.espacio.GetValue(), int(self.tiempo.GetValue()))
-		#listaprint = lis.getTareaByIdAlta('nuevo')
+		
+		for elemento in self.lis:
+			print elemento
 
 		#listaprint.imprimir()
 
@@ -108,11 +110,14 @@ class SisOpe(wx.Frame):
 				tar = Tarea(tareaNum, random.randint(5, 30), x, random.randint(10, 60)) #CREAR LA TAREA
 				prior=random.randint(1,10)  #VARIABLE PARA VER LA PRIORIDAD
 				if(prior<=2):
-					print str(tareaNum)#self.lis.setTareaAlta(tar)
+					print str(tareaNum)
+					self.lis.setTareaAlta(tar)
 				elif(prior>=7):
-					print str(tareaNum)#self.lis.setTareaBaja(tar)
+					print str(tareaNum)
+					self.lis.setTareaBaja(tar)
 				else:
-					print str(tareaNum)#self.lis.setTareaMedi(tar)
+					print str(tareaNum)
+					self.lis.setTareaMedi(tar)
 		return None
 
 	def on_save(self, event):
