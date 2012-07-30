@@ -2,6 +2,7 @@
 
 """
 Elaborado por: Chavez, Ordoñez y Saavedra.
+Universidad rafael belloso chacin
 
 Simulador de tareas en un sistema operativo Enunciado:
 Generar Tareas:
