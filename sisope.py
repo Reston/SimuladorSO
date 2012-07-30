@@ -1,6 +1,9 @@
 # -*- coding: utf-8 *-*
 
-""" Simulador de tareas en un sistema operativo Enunciado:
+"""
+Elaborado por: Chavez, Ordoñez y Saavedra.
+
+Simulador de tareas en un sistema operativo Enunciado:
 Generar Tareas:
 -Tamaño proceso
 -Tiempo de ejecución
