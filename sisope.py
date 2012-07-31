@@ -122,15 +122,23 @@ class SisOpe(wx.Frame):
 					self.listaMedia.append(self.tar)
 		return None
 
-	def SimularSistema(self, tiempo, memoria):
-		x=0
+	def SimularSistema(self, tiempo, memoriaTotal):
+		x = 0
+		memoriaUsada = 0
 		while x<=tiempo:
 			x+=1
 			for self.tar in self.listaAlta:
 				if self.tar.tiempoLlegada==x:
-					pass
+					if(revisar_memoria(memoriaTotal,memoriaUsada,self.tar.memoria)):
+						memoriaUsada += self.tar.memoria
 
 		return None
+
+	def revisar_memoria(self, memoriaTotal, memoriaUsada, memoriaTarea):
+		if((memoriaTarea+memoriaUsada)<=memoriaTotal):
+			return True
+		else:
+			return False
 
 	def on_save(self, event):
 		#Guardar una carta
