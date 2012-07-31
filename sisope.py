@@ -37,7 +37,6 @@ import wx
 import random
 from constants import *
 from tarea import Tarea
-from listas import Listas
 
 class SisOpe(wx.Frame):
 
