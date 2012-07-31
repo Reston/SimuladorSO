@@ -138,7 +138,7 @@ class SisOpe(wx.Frame):
 						self.set_timers(x, self.tar.tiempoDuracion)
 					else:
 						self.listaAlta.append(self.tar)
-						self.listaAlta.pop(self.tar)
+						self.listaAlta.pop(self.listaAlta.index(self.tar))
 
 				if self.tar.tiempoFinal==x:
 					memoriaUsada -= self.tar.memoria
