@@ -89,17 +89,18 @@ class SisOpe(wx.Frame):
 		self.listaBaja  = []
 		self.listaFinal = []
 		if self.tiempo.GetValue() != '':
-			self.GenerarTareas(int(self.ntarea.GetValue()), self.espacio.GetValue(), int(self.tiempo.GetValue()))
-
+			self.GenerarTareas(int(self.ntarea.GetValue()),int(self.espacio.GetValue()), int(self.tiempo.GetValue()))
+			self.SimularSistema(int(self.tiempo.GetValue()),int(self.espacio.GetValue()))
+		
 		print "\n"
 		#VER CUANTAS TAREAS TIENE CADA LISTA
 		#print str(len(self.listaAlta))+" + "+str(len(self.listaMedia))+" + "+str(len(self.listaBaja))+" = "+str(len(self.listaAlta)+len(self.listaMedia)+len(self.listaBaja))
 		
-		self.listaAlta.sort(key=operator.attrgetter('tiempoLlegada'))
+		
 
 		for self.tar in self.listaAlta:
-			print self.tar.tiempoLlegada
-			
+			print "Tiempo de llegada: "+str(self.tar.tiempoLlegada)+"   Tiempo de inicio: "+str(self.tar.tiempoInicial)+"   Tiempo final: "+str(self.tar.tiempoFinal)
+
 		resultado = Resultado(self)
 		resultado.Show(True)
 		resultado.MakeModal(True)
@@ -125,16 +126,25 @@ class SisOpe(wx.Frame):
 		return None
 
 	def SimularSistema(self, tiempo, memoriaTotal):
+		self.listaAlta.sort(key=operator.attrgetter('tiempoLlegada'))
 		x = 0
 		memoriaUsada = 0
 		while x<=tiempo:
 			x+=1
 			for self.tar in self.listaAlta:
 				if self.tar.tiempoLlegada==x:
-					if(revisar_memoria(memoriaTotal,memoriaUsada,self.tar.memoria)):
+					if(self.revisar_memoria(memoriaTotal,memoriaUsada,self.tar.memoria)):
 						memoriaUsada += self.tar.memoria
+						self.set_timers(x, self.tar.tiempoDuracion)
+				if self.tar.tiempoFinal==x:
+					memoriaUsada -= self.tar.memoria
+
 
 		return None
+
+	def set_timers(self,tiempoInicial,tiempoDuracion):
+		self.tar.tiempoInicial = tiempoInicial
+		self.tar.tiempoFinal = self.tar.tiempoInicial+tiempoDuracion
 
 	def revisar_memoria(self, memoriaTotal, memoriaUsada, memoriaTarea):
 		if((memoriaTarea+memoriaUsada)<=memoriaTotal):
