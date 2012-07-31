@@ -133,9 +133,12 @@ class SisOpe(wx.Frame):
 			x+=1
 			for self.tar in self.listaAlta:
 				if self.tar.tiempoLlegada==x:
-					if(self.revisar_memoria(memoriaTotal,memoriaUsada,self.tar.memoria)):
+					if(self.revisar_memoria(memoriaTotal, memoriaUsada, self.tar.memoria)):
 						memoriaUsada += self.tar.memoria
 						self.set_timers(x, self.tar.tiempoDuracion)
+					else:
+						self.listaAlta.append(self.tar)
+						self.listaAlta.pop(self.listaAlta.index(self.tar))
 				if self.tar.tiempoFinal==x:
 					memoriaUsada -= self.tar.memoria
 
