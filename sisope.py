@@ -97,11 +97,11 @@ class SisOpe(wx.Frame):
 		#print str(len(self.listaAlta))+" + "+str(len(self.listaMedia))+" + "+str(len(self.listaBaja))+" = "+str(len(self.listaAlta)+len(self.listaMedia)+len(self.listaBaja))
 		
 		
-
+		detalles = "ID\tMemoria\tTiempo Inicial\tTiempo Final\tDuracion\tTiempo llegada\tPrioridad\n"
 		for self.tar in self.listaAlta:
-			print "Memoria: "+str(self.tar.memoria)+"   Tiempo llegada: "+str(self.tar.tiempoLlegada)+"   Tiempo inicial: "+str(self.tar.tiempoInicial)+"   Tiempo final: "+str(self.tar.tiempoFinal)
-
-		resultado = Resultado(self)
+			detalles+= str(self.tar.idtar)+"\t"+str(self.tar.memoria)+"\t"+str(self.tar.getTiempoInicial())+"\t\t"+str(self.tar.getTiempoFinal())+"\t\t"+str(self.tar.getTiempoDuracion())+"\t"+str(self.tar.getTiempoLlegada())+"\tAlta\n"
+		 
+		resultado = Resultado(self,detalles)
 		resultado.Show(True)
 		resultado.MakeModal(True)
 	
@@ -177,7 +177,7 @@ class SisOpe(wx.Frame):
 
 class Resultado(wx.Frame):
 
-	def __init__(self, parent):
+	def __init__(self, parent, detalles):
 		wx.Frame.__init__(self, parent, wx.NewId(), "Resultados - SimuladorSO",
 							pos=(10,140), size=(600,400))
 		self.Bind(wx.EVT_CLOSE, self.al_cerrar)
@@ -196,7 +196,7 @@ class Resultado(wx.Frame):
 				
 		#caja de texto de los detalles
 		self.cajatext = wx.TextCtrl(self.panel, style=wx.TE_MULTILINE, pos=(10,80), size=(550,210))
-
+		self.cajatext.SetValue(detalles)
 		#botones
 		bVolver = wx.Button(self.panel,label="Volver",pos=(430,300),size=(60,30))
 		bImprimir = wx.Button(self.panel,label="Imprimir",pos=(500,300),size=(60,30))

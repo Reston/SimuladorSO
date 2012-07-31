@@ -32,11 +32,11 @@ class Tarea:
 
 
 	#getters de las tareas
-	def getTiempollegada(self):
+	def getTiempoLlegada(self):
 		return self.tiempoLlegada
 
 	def getTiempoDuracion(self):
-		return self.tiempoDuracion
+		return self.tiempoFinal-self.tiempoInicial
 
 	def getTiempoInicial(self):
 		return self.tiempoInicial
