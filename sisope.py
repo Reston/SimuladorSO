@@ -85,12 +85,18 @@ class SisOpe(wx.Frame):
 		self.Show(True)  # Mostrar la ventana
 
 	def iniciarSimulacion(self, event):
-		self.lis = Listas()
+		self.listaAlta  = []
+		self.listaMedia = []
+		self.listaBaja  = []
 		if self.tiempo.GetValue() != '':
 			self.GenerarTareas(int(self.ntarea.GetValue()), self.espacio.GetValue(), int(self.tiempo.GetValue()))
 
-		listaprint = self.lis.getTareaByIdAlta(1)
-		listaprint.imprimir()
+		print "\n"
+		#VER CUANTAS TAREAS TIENE CADA LISTA
+		#print str(len(self.listaAlta))+" + "+str(len(self.listaMedia))+" + "+str(len(self.listaBaja))+" = "+str(len(self.listaAlta)+len(self.listaMedia)+len(self.listaBaja))
+		
+		for self.tar in self.listaAlta:
+			print self.tar.tiempoLlegada
 
 		resultado = Resultado(self)
 		resultado.Show(True)
@@ -99,23 +105,31 @@ class SisOpe(wx.Frame):
 	def GenerarTareas(self, numTar, espMem, tiempo):
 		tareaNum=0
 		x=0
-		while tareaNum<numTar:
+		while tareaNum<numTar:			#WHILE PARA QUE SE CREEN TODAS LAS TAREAS
 			x+=1
-			#for x in xrange(tiempo):			#SIMULAR CREACIÓN DE TAREAS	
+			if x>tiempo:
+				x=0
 			var=random.randint(1,100)
 			if(var<=10):				#10% DE CHANCE DE CREAR UNA TAREA
 				tareaNum+=1 			#NUMERO ACTUAL DE TAREAS + 1
-				tar = Tarea(tareaNum, random.randint(5, 30), x, random.randint(10, 60)) #CREAR LA TAREA
-				prior=random.randint(1,10)  #VARIABLE PARA VER LA PRIORIDAD
-				if(prior<=2):
-					print str(tareaNum)
-					self.lis.setTareaAlta(tar)
-				elif(prior>=7):
-					print str(tareaNum)
-					self.lis.setTareaBaja(tar)
+				self.tar = Tarea(int(tareaNum), random.randint(5, 30), int(x), random.randint(5, 60)) #CREAR LA TAREA
+				prior=random.randint(1,100)  #VARIABLE PARA VER LA PRIORIDAD
+				if(prior<=20):
+					self.listaAlta.append(self.tar)
+				elif(prior>=70):
+					self.listaBaja.append(self.tar)
 				else:
-					print str(tareaNum)
-					self.lis.setTareaMedi(tar)
+					self.listaMedia.append(self.tar)
+		return None
+
+	def SimularSistema(self, tiempo, memoria):
+		x=0
+		while x<=tiempo:
+			x+=1
+			for self.tar in self.listaAlta:
+				if self.tar.tiempoLlegada==x:
+					pass
+
 		return None
 
 	def on_save(self, event):

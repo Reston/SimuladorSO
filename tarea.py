@@ -69,3 +69,6 @@ class Tarea:
 		self.idtar = idtar
 		self.estado = ""
 		self.prioridad = ""
+
+	def __repr__(self):
+		return repr((self.idtar))
