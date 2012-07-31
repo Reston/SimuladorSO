@@ -99,7 +99,7 @@ class SisOpe(wx.Frame):
 		
 
 		for self.tar in self.listaAlta:
-			print "Tiempo de llegada: "+str(self.tar.tiempoLlegada)+"   Tiempo de inicio: "+str(self.tar.tiempoInicial)+"   Tiempo final: "+str(self.tar.tiempoFinal)
+			print "Memoria: "+str(self.tar.memoria)+"   Tiempo llegada: "+str(self.tar.tiempoLlegada)+"   Tiempo inicial: "+str(self.tar.tiempoInicial)+"   Tiempo final: "+str(self.tar.tiempoFinal)
 
 		resultado = Resultado(self)
 		resultado.Show(True)
@@ -138,11 +138,10 @@ class SisOpe(wx.Frame):
 						self.set_timers(x, self.tar.tiempoDuracion)
 					else:
 						self.listaAlta.append(self.tar)
-						self.listaAlta.pop(self.listaAlta.index(self.tar))
+						self.listaAlta.pop(self.tar)
+
 				if self.tar.tiempoFinal==x:
 					memoriaUsada -= self.tar.memoria
-
-
 		return None
 
 	def set_timers(self,tiempoInicial,tiempoDuracion):
