@@ -31,7 +31,7 @@ Interfaz de salida:
 4. Conclusiones.
 5. Recomendaciones.
 """
-
+import operator
 import datetime
 import wx
 import random
@@ -87,6 +87,7 @@ class SisOpe(wx.Frame):
 		self.listaAlta  = []
 		self.listaMedia = []
 		self.listaBaja  = []
+		self.listaFinal = []
 		if self.tiempo.GetValue() != '':
 			self.GenerarTareas(int(self.ntarea.GetValue()), self.espacio.GetValue(), int(self.tiempo.GetValue()))
 
@@ -94,9 +95,11 @@ class SisOpe(wx.Frame):
 		#VER CUANTAS TAREAS TIENE CADA LISTA
 		#print str(len(self.listaAlta))+" + "+str(len(self.listaMedia))+" + "+str(len(self.listaBaja))+" = "+str(len(self.listaAlta)+len(self.listaMedia)+len(self.listaBaja))
 		
+		self.listaAlta.sort(key=operator.attrgetter('tiempoLlegada'))
+
 		for self.tar in self.listaAlta:
 			print self.tar.tiempoLlegada
-
+			
 		resultado = Resultado(self)
 		resultado.Show(True)
 		resultado.MakeModal(True)
